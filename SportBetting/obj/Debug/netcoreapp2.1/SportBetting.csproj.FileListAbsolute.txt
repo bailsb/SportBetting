@@ -1,0 +1,11 @@
+C:\Test\SportBetting\SportBetting\bin\Debug\netcoreapp2.1\SportBetting.deps.json
+C:\Test\SportBetting\SportBetting\bin\Debug\netcoreapp2.1\SportBetting.runtimeconfig.json
+C:\Test\SportBetting\SportBetting\bin\Debug\netcoreapp2.1\SportBetting.runtimeconfig.dev.json
+C:\Test\SportBetting\SportBetting\bin\Debug\netcoreapp2.1\SportBetting.dll
+C:\Test\SportBetting\SportBetting\bin\Debug\netcoreapp2.1\SportBetting.pdb
+C:\Test\SportBetting\SportBetting\obj\Debug\netcoreapp2.1\SportBetting.csprojAssemblyReference.cache
+C:\Test\SportBetting\SportBetting\obj\Debug\netcoreapp2.1\SportBetting.csproj.CoreCompileInputs.cache
+C:\Test\SportBetting\SportBetting\obj\Debug\netcoreapp2.1\SportBetting.AssemblyInfoInputs.cache
+C:\Test\SportBetting\SportBetting\obj\Debug\netcoreapp2.1\SportBetting.AssemblyInfo.cs
+C:\Test\SportBetting\SportBetting\obj\Debug\netcoreapp2.1\SportBetting.dll
+C:\Test\SportBetting\SportBetting\obj\Debug\netcoreapp2.1\SportBetting.pdb

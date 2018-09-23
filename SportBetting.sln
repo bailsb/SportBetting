@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportBetting", "SportBetting\SportBetting.csproj", "{9ABBF15B-467C-4CFE-8F7F-DCBB8872A82D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NFLKellyCriteria", "NFLKellyCriteria\NFLKellyCriteria.csproj", "{E6288291-38E6-46A1-BC38-9DC93611C723}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9ABBF15B-467C-4CFE-8F7F-DCBB8872A82D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9ABBF15B-467C-4CFE-8F7F-DCBB8872A82D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9ABBF15B-467C-4CFE-8F7F-DCBB8872A82D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9ABBF15B-467C-4CFE-8F7F-DCBB8872A82D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9ABBF15B-467C-4CFE-8F7F-DCBB8872A82D}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{E6288291-38E6-46A1-BC38-9DC93611C723}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6288291-38E6-46A1-BC38-9DC93611C723}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6288291-38E6-46A1-BC38-9DC93611C723}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6288291-38E6-46A1-BC38-9DC93611C723}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
