@@ -8,6 +8,7 @@
       <e p="packages" t="ExcludeRecursive" />
       <e p="SportBetting" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
+        <e p="GameModel.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp2.1" t="Include">

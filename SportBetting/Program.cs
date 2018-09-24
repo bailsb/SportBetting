@@ -8,15 +8,23 @@ namespace SportBetting
 {
     class NFLCriteria
     {
-        private static string InFile = "C:\\Test\\NFLInputFile.csv";
-        private static string OutFile = "C:\\Test\\NFLOutputFile.csv";
+        private static string InFile = "NFLInputFile.csv";
+        private static string OutFile = "NFLOutputFile.csv";
         
         static void Main(string[] args)
         {
+            if (args.Length > 0)
+            {
+                InFile = args[0];
+            }
             Console.WriteLine("Hello World!");
             List<GameModel> values = File.ReadAllLines(InFile)
                 .Select(x => GameModel.FromCsv(x)).ToList();
             Console.WriteLine("Imported Lines");
+            
+            // Apply Formula
+            values.ForEach(ApplyKellyCriteria);
+            
             WriteToFile(values);
             Console.WriteLine("Written to File");
         }
@@ -37,59 +45,21 @@ namespace SportBetting
 
         private static void ApplyKellyCriteria(GameModel game)
         {
-            CalculateResultsForTeam(game.HomeTeam);
-            CalculateResultsForTeam(game.VisitingTeam);
-        }
-
-        private static void CalculateResultsForTeam(TeamModel team)
-        {
-            team.Results = (((team.DecimalOdds - 1) * team.WinProb) - (1 - team.WinProb)) /
-                           (team.DecimalOdds - 1);
-        }
-    }
-
-    public class GameModel
-    {
-        public TeamModel HomeTeam;
-        public TeamModel VisitingTeam;
-
-        public static GameModel FromCsv(string csvLine)
-        {
-            string[] values = csvLine.Split(',');
-            GameModel result = new GameModel();
-            result.VisitingTeam.Name = values[0];
-            result.HomeTeam.Name = values[1];
-            result.VisitingTeam.DecimalOdds = Convert.ToDecimal(values[2]);
-            result.HomeTeam.DecimalOdds = Convert.ToDecimal(values[3]);
-            if (String.IsNullOrEmpty(values[4]))
+            foreach (var oddsKey in game.HomeTeam.WinProb.Keys)
             {
-                //visitorWinProb not filled in
-                result.HomeTeam.WinProb = Convert.ToDecimal(values[5]);
-                result.VisitingTeam.WinProb = 1.0m - result.HomeTeam.WinProb;
-            }
-            else
-            {
-                result.VisitingTeam.WinProb = Convert.ToDecimal(values[4]);
-                if (String.IsNullOrEmpty(values[5]))
+                foreach (var percentKey in game.HomeTeam.WinProb.Keys)
                 {
-                    //homeWinProb is empty
-                    result.HomeTeam.WinProb = 1.0m - result.VisitingTeam.WinProb;
+                    CalculateResultsForTeam(game.HomeTeam, oddsKey, percentKey);
+                    CalculateResultsForTeam(game.VisitingTeam, oddsKey, percentKey);
                 }
-                else
-                {
-                    result.HomeTeam.WinProb = Convert.ToDecimal(values[5]);
-                }
-            }
-
-            return result;
+            }           
         }
-    }
 
-    public class TeamModel
-    {
-        public string Name;
-        public decimal DecimalOdds;
-        public decimal WinProb;
-        public decimal Results;
+        private static void CalculateResultsForTeam(TeamModel team, int oddsKey, int percentKey)
+        {
+            team.Results.Add(string.Concat(oddsKey.ToString(), percentKey.ToString()), 
+                ((((team.DecimalOdds[oddsKey] - 1) * team.WinProb[percentKey]) - (1 - team.WinProb[percentKey])) /
+                           (team.DecimalOdds[oddsKey] - 1)));
+        }
     }
 }
